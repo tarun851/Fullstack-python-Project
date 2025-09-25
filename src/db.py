@@ -22,12 +22,12 @@ def create_Vehicles(vehicle_number,vehicle_type ,manufacturer,year_of_manufactur
     }).execute()
 
 #get all tasks
-def get__all_Vehicles():
+def get_all_Vehicles():
     return supabase.table("Vehicles").select("*").order("date_of_registration").execute()
 
 #update tasks status
-def update_Vehicles(vehicle_id,manufacturer):
-    return supabase.table("Vehicles").update({"manufacturer":manufacturer}).eq("vehicle_id",vehicle_id).execute()
+def update_Vehicles(vehicle_id,completed=True):
+    return supabase.table("Vehicles").update({"Completed":completed}).eq("vehicle_id",vehicle_id).execute()
 
 #delete task
 def delete_Vehicles(vehicle_id):
